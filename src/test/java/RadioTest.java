@@ -17,6 +17,18 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldNotSetStation() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(15);
+
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSetPrevStation() {
         Radio radio = new Radio();
 
