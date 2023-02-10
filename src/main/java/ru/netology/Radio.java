@@ -25,32 +25,34 @@ public class Radio {
     }
 
     public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation >= 0 && newCurrentRadioStation <= 9) {
-            currentRadioStation = newCurrentRadioStation;
+        if (newCurrentRadioStation < 0) {
+            return;
         }
+        if (newCurrentRadioStation > 9) {
+            return;
+        }
+        this.currentRadioStation = newCurrentRadioStation;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume >= 0 && newCurrentVolume <= 10) {
-            currentVolume = newCurrentVolume;
+        if (newCurrentVolume < 0) {
+            return;
         }
+        if (newCurrentVolume > 10) {
+            return;
+        }
+        this.currentVolume = newCurrentVolume;
     }
 
     public void next() {
-        if (currentRadioStation < 9) {
+        if (currentRadioStation != 9) {
             currentRadioStation++;
-        }
-        if (currentRadioStation == 9) {
-            currentRadioStation = 0;
-        }
+        } else currentRadioStation = 0;
     }
 
     public void prev() {
-        if (currentRadioStation > 0) {
+        if (currentRadioStation != 0) {
             currentRadioStation--;
-        }
-        if (currentRadioStation == 0) {
-            currentRadioStation = 9;
-        }
+        } else currentRadioStation = 9;
     }
 }
